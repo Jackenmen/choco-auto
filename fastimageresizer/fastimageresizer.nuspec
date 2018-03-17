@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>fastimageresizer</id>
     <title>Fast Image Resizer</title>
-    <version>v0.98</version>
+    <version>0.98</version>
     <authors>adionSoft</authors>
     <owners>jack1142</owners>
     <description>If you need to resize multiple images in a row, then Fast Image Resizer is just the tools you need. This simple application allows you to resize one or multiple images for web or email distribution in a very east way.</description>
     <projectUrl>https://adionsoft.net/fastimageresize/</projectUrl>
     <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/442937000477cdeff895269238caa5ee7cd9c428/fastimageresizer/icons/fastimageresizer.png</iconUrl>
     <licenseUrl>https://cdn.rawgit.com/jack1142/choco-auto/d9f676485ab8ee8c5ae11a10d55d48306708d9a5/fastimageresizer/fastimageresizer_license.md</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>Fast Image Resizer</summary>
-    <tags>fast image resizer freeware cross-platform batch admin</tags>
+    <tags>fastimageresizer fast image resizer freeware cross-platform batch admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/fastimageresizer</packageSourceUrl>
   </metadata>
   <files>
