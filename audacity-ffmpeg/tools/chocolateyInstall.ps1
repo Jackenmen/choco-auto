@@ -10,4 +10,13 @@ $packageArgs = @{
   validExitCodes         = @(0)
   softwareName           = 'FFmpeg for Audacity *'
 }
-Install-ChocolateyPackage @packageArgs
+
+$options =
+@{
+  Headers = @{
+    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
+    Referer = 'https://lame.buanzo.org/';
+  }
+}
+
+Install-ChocolateyPackage @packageArgs -Options $options
