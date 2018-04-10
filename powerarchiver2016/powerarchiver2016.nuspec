@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>powerarchiver2016</id>
+    <title>PowerArchiver 2016</title>
+    <version>16.10.24</version>
+    <authors>ConeXware, Inc.</authors>
+    <owners>jack1142</owners>
+    <description>Compress, Encrypt, Exchange and Backup your data. Fastest archiver with support for ZIP, ZIPX, 7Z, PA, RAR, ISO (over 60+ formats), strongest compression and secure 256-bit AES encryption!
+	
+### Notes
+
+* This package uses PowerArchiver 2016 MSI installer extracted from PowerArchiver's .exe file available [here](http://dl.powerarchiver.com/2016/powarc161024.exe), unfortunately they don't provide this MSI file directly for versions under 2017
+* I didn't edit PowerArchiver's file in any way, if you don't trust me, you can download exe file from link above, extract msi file yourself and compare checksums, but I think that you shouldn't bother yourself, because this MSI file is signed anyway ¯\\\_(ツ)_/¯
+* End-User License allows to distribute copies of this Software to anyone, so I don't break Distribution Rights
+</description>
+    <projectUrl>https://www.powerarchiver.com/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/jack1142/choco-auto/e60d2f3572d9ca1a5cf4137c3807be721eb80363/powerarchiver2016/icons/powerarchiver2016.png</iconUrl>
+    <licenseUrl>https://wiki.powerarchiver.com/en:help:additional_information:license</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>PowerArchiver 2016</summary>
+    <tags>powerarchiver trial rar compression archive nagware admin</tags>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/powerarchiver2016</packageSourceUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
