@@ -1,5 +1,10 @@
-<!--Your issue may already be reported!
-Please search on the [issue track](../) before creating one.-->
+<!--
+Please, make titles like this (replace "packagename" with package name, replace "issuetype" with proper issue type from these: "Bug", "Feature", "Support" and replace "General summary of the issue" with summary of the issue):
+[packagename] [issuetype] General summary of the issue
+
+
+Fill issue template below:
+-->
 
 * **I'm submitting a ...**
   - [ ] bug report
