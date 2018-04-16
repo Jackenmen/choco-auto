@@ -11,8 +11,6 @@
 ### Notes
 
 * This package uses PowerArchiver 2016 MSI installer extracted from PowerArchiver's .exe file available [here](http://dl.powerarchiver.com/2016/powarc161024.exe), unfortunately they don't provide this MSI file directly for versions under 2017
-* I didn't edit PowerArchiver's file in any way, if you don't trust me, you can download exe file from link above, extract msi file yourself and compare checksums, but I think that you shouldn't bother yourself, because this MSI file is signed anyway ¯\\\_(ツ)_/¯
-* End-User License allows to distribute copies of this Software to anyone, so I don't break Distribution Rights
 </description>
     <projectUrl>https://www.powerarchiver.com/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/jack1142/choco-auto/e60d2f3572d9ca1a5cf4137c3807be721eb80363/powerarchiver2016/icons/powerarchiver2016.png</iconUrl>

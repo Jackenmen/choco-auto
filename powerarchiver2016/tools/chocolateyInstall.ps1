@@ -1,13 +1,20 @@
 ﻿$ErrorActionPreference = 'Stop'
- 
+
+$packageName = 'powerarchiver2016'
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+
+Get-ChocolateyWebFile -PackageName $packageName -File "$toolsDir\powarc161024.exe" -Url 'http://dl.powerarchiver.com/2016/powarc161024.exe' -Checksum 'a909f952d011caa59349af59e75194103329bbaeb2466aa5e8ada214ea45bf03' -ChecksumType 'sha256'
+Get-ChocolateyUnzip -File "$toolsDir\powarc161024.exe" -Destination "$toolsDir"
+
+$fileLocation = Join-Path $toolsDir "setup.msi"
+
 $packageArgs = @{
-  packageName            = 'powerarchiver2016'
+  packageName            = $packageName
   fileType               = 'msi'
-  url                    = 'https://github.com/jack1142/choco-auto/releases/download/powerarchiver2016/setup.msi'
-  checksum               = 'f7e3629344287e963d7171d780bea153924e8ba269b543209993d5fd23c1d9f5'
-  checksumType           = 'sha256'
+  file                   = $fileLocation
   silentArgs             = '/qn /norestart'
   validExitCodes         = @(0)
   softwareName           = 'PowerArchiver 2016 *'
-}
+};
+
 Install-ChocolateyPackage @packageArgs
