@@ -10,14 +10,15 @@
 	
 ### Notes
 
-* This package uses PowerArchiver 2016 MSI installer extracted from PowerArchiver's .exe file available [here](http://dl.powerarchiver.com/2016/powarc161024.exe), unfortunately they don't provide this MSI file directly for versions under 2017
+* This package uses PowerArchiver 2016 MSI installer extracted from PowerArchiver's .exe file. There's no way to omit extracting window, if you use self-extracting exe, so I use extracted msi package instead.
 </description>
     <projectUrl>https://www.powerarchiver.com/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/jack1142/choco-auto/e60d2f3572d9ca1a5cf4137c3807be721eb80363/powerarchiver2016/icons/powerarchiver2016.png</iconUrl>
     <licenseUrl>https://wiki.powerarchiver.com/en:help:additional_information:license</licenseUrl>
+    <docsUrl>https://wiki.powerarchiver.com</docsUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>PowerArchiver 2016</summary>
-    <tags>powerarchiver trial rar compression archive nagware admin</tags>
+    <tags>powerarchiver trial rar compression archive admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/powerarchiver2016</packageSourceUrl>
   </metadata>
   <files>

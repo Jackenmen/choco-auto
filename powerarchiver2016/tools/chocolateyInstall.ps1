@@ -17,4 +17,4 @@ $packageArgs = @{
   softwareName           = 'PowerArchiver 2016 *'
 };
 
-Install-ChocolateyPackage @packageArgs
+Install-ChocolateyInstallPackage @packageArgs
