@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>dds-thumbnail-viewer</id>
+    <title>DDS Thumbnail Viewer</title>
+    <version>1.0.1.0</version>
+    <authors>NVIDIA Corporation</authors>
+    <owners>jack1142</owners>
+    <description>Allows you to view .dds files in Thumbnail view in the Windows Explorer.</description>
+    <projectUrl>http://www.nvidia.com/object/dds_thumbnail_viewer.html</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/be1515ec33757293e3e6ede4536880822f057c76/dds-thumbnail-viewer/icons/dds-thumbnail-viewer.png</iconUrl>
+    <licenseUrl>https://cdn.rawgit.com/jack1142/choco-auto/be1515ec33757293e3e6ede4536880822f057c76/dds-thumbnail-viewer/dds-thumbnail-viewer_license.md</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>DDS Thumbnail Viewer</summary>
+    <tags>dds thumbnail viewer freeware cross-platform batch admin</tags>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/dds-thumbnail-viewer</packageSourceUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
