@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>chrome-remote-desktop-host</id>
+    <title>Chrome Remote Desktop Host</title>
+    <version>1.0</version>
+    <authors>Google Inc.</authors>
+    <owners>jack1142</owners>
+    <description>Chrome Remote Desktop allows users to remotely access another computer through Chrome browser or a Chromebook.  Computers can be made available on an short-term basis for scenarios such as ad hoc remote support, or on a more long-term basis for remote access to your applications and files.  All connections are fully secured.
+
+Chrome Remote Desktop is fully cross-platform.  Provide remote assistance to Windows, Mac and Linux users, or access your Windows (XP and above) and Mac (OS X 10.6 and above) desktops at any time, all from the Chrome browser on virtually any device, including Chromebooks.
+</description>
+    <projectUrl>https://chrome.google.com/remotedesktop</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/3adea3f49bfc2757b4432d803d502d3cf247c2f1/chrome-remote-desktop-host/icons/chrome-remote-desktop-host.png</iconUrl>
+    <summary>Chrome Remote Desktop Host</summary>
+    <tags>chrome remote control freeware cross-platform admin</tags>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/chrome-remote-desktop-host</packageSourceUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
