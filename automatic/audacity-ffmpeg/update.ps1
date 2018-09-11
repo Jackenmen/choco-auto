@@ -24,15 +24,10 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-     Write-Host "LOL"
      $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-     Write-Host "XD"
      $regex   = 'ffmpeg-win-.+\.exe$'
-     Write-Host "XD2"
      $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href
-     Write-Host "XD3"
      $version = $url -split '-|.exe' | select -Last 1 -Skip 1
-     Write-Host "XD4"
      return @{ Version = $version; URL = $url; Options = $options }
 }
 
