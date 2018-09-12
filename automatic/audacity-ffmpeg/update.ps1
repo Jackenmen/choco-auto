@@ -2,12 +2,14 @@ import-module au
 
 $releases = 'https://lame.buanzo.org/'
 
-$options =
-@{
-  Headers = @{
+$headers = @{
     Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
     Referer = 'https://lame.buanzo.org/';
   }
+
+$options =
+@{
+  Headers = $headers
 }
 
 function global:au_SearchReplace {
@@ -20,7 +22,7 @@ function global:au_SearchReplace {
 }
 
 function global:au_BeforeUpdate {
-    $Latest.Checksum = Get-RemoteChecksum $Latest.URL
+    $Latest.Checksum = Get-RemoteChecksum $Latest.URL -Headers $headers
 }
 
 function global:au_GetLatest {
@@ -31,4 +33,4 @@ function global:au_GetLatest {
      return @{ Version = $version; URL = $url; Options = $options }
 }
 
-update
+update -ChecksumFor none
