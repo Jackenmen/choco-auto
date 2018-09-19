@@ -8,4 +8,4 @@
 
 ### Description
 
-This repository contains chocolatey packages, most of which are [automatic](https://chocolatey.org/docs/automatic-packages).
+This repository contains chocolatey packages, most of which are manual, but there are also [automatic ones](https://chocolatey.org/docs/automatic-packages).
