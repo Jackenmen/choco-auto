@@ -39,8 +39,7 @@
 * [Changelog](http://www.sandboxie.com/index.php?VersionChanges)
 
 #### Package
-* Automatically built and uploaded by [jack1142](https://chocolatey.org/profiles/jack1142)
-* Install scripts and this description was created by [dtgm](https://chocolatey.org/profiles/dtgm)</releaseNotes>
+* Automatically built and uploaded by [jack1142](https://chocolatey.org/profiles/jack1142)</releaseNotes>
     <copyright>© 2004 Sandboxie Holdings LLC, © Dec 2013 Invincea</copyright>
     <tags>security virtualization forensics shareware nagscreen admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/sandboxie</packageSourceUrl>
