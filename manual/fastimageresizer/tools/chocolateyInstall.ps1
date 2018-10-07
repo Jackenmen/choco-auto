@@ -8,6 +8,6 @@ $packageArgs = @{
   checksumType           = 'sha256'
   silentArgs             = '/S'
   validExitCodes         = @(0)
-  softwareName           = 'Fast Image Resizer *'
+  softwareName           = 'FastImageResizer*'
 }
 Install-ChocolateyPackage @packageArgs
