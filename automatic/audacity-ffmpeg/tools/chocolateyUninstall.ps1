@@ -1,10 +1,26 @@
+$ErrorActionPreference = 'Stop'
+
 $packageName = "audacity-ffmpeg"
-$installerType = "exe"
 
-if (Test-Path "$env:ProgramFiles\FFmpeg for Audacity") {
-    Uninstall-ChocolateyPackage $packageName $installerType "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-" "$env:ProgramFiles\FFmpeg for Audacity\unins000.exe"
-}
+[array]$key = Get-UninstallRegistryKey -SoftwareName "FFmpeg (Windows) for Audacity*"
 
-if (Test-Path "${env:ProgramFiles(x86)}\FFmpeg for Audacity") {
-    Uninstall-ChocolateyPackage $packageName $installerType "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-" "${env:ProgramFiles(x86)}\FFmpeg for Audacity\unins000.exe"
+if ($key.Count -eq 1) {
+  $key | ForEach-Object {
+    $packageArgs = @{
+      packageName = $packageName
+      fileType    = 'exe'
+      silentArgs  = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
+      validExitCodes= @(0)
+      file          = "$($_.UninstallString.Trim('"'))"
+    }
+ 
+    Uninstall-ChocolateyPackage @packageArgs
+  }
+} elseif ($key.Count -eq 0) {
+  Write-Warning "$packageName has already been uninstalled by other means."
+} elseif ($key.Count -gt 1) {
+  Write-Warning "$($key.Count) matches found!"
+  Write-Warning "To prevent accidental data loss, no programs will be uninstalled."
+  Write-Warning "Please alert package maintainer the following keys were matched:"
+  $key | ForEach-Object {Write-Warning "- $($_.DisplayName)"}
 }

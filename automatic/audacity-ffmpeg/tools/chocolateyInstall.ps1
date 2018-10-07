@@ -8,7 +8,7 @@ $packageArgs = @{
   checksumType           = 'sha256'
   silentArgs             = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
   validExitCodes         = @(0)
-  softwareName           = 'FFmpeg for Audacity *'
+  softwareName           = 'FFmpeg (Windows) for Audacity *'
 }
 
 $options =

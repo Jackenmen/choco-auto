@@ -3,17 +3,17 @@
   <metadata>
     <id>audacity-ffmpeg</id>
     <title>FFmpeg for Audacity</title>
-    <version>2.2.2</version>
+    <version>2.2.2.20181007</version>
     <authors>Arturo Busleiman (Buanzo)</authors>
     <owners>jack1142</owners>
     <description>Allows Audacity to import and export many additional audio formats such as AC3, AMR(NB), M4A and WMA, and to import audio from video files.</description>
     <projectUrl>https://lame.buanzo.org/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/jack1142/choco-auto/dfa804d073334fde0d6524ed5e99e6bf05bd7a32/audacity-ffmpeg/icons/audacity-ffmpeg.png</iconUrl>
-    <licenseUrl>https://cdn.rawgit.com/jack1142/choco-auto/dfa804d073334fde0d6524ed5e99e6bf05bd7a32/audacity-ffmpeg/audacity-ffmpeg-license.txt</licenseUrl>
+    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/icons/audacity-ffmpeg.png</iconUrl>
+    <licenseUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/audacity-ffmpeg-license.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>FFmpeg for Audacity</summary>
     <tags>audacity-ffmpeg audacity ac3 amr m4a wma ffmpeg admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/audacity-ffmpeg</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/audacity-ffmpeg</packageSourceUrl>
 	<dependencies>
       <dependency id="audacity" version="2.1.2" />
     </dependencies>
