@@ -48,4 +48,6 @@
       <dependency id="sandboxie.install" version="5.26" />
     </dependencies>
   </metadata>
+  <files>
+  </files>
 </package>

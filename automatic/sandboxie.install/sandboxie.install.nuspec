@@ -44,4 +44,7 @@
     <tags>security virtualization forensics shareware nagscreen admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/sandboxie.install</packageSourceUrl>
   </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
 </package>
