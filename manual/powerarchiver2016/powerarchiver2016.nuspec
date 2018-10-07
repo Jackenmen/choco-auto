@@ -3,7 +3,7 @@
   <metadata>
     <id>powerarchiver2016</id>
     <title>PowerArchiver 2016</title>
-    <version>16.10.24</version>
+    <version>16.10.24.20181007</version>
     <authors>ConeXware, Inc.</authors>
     <owners>jack1142</owners>
     <description>Compress, Encrypt, Exchange and Backup your data. Fastest archiver with support for ZIP, ZIPX, 7Z, PA, RAR, ISO (over 60+ formats), strongest compression and secure 256-bit AES encryption!
@@ -13,13 +13,13 @@
 * This package uses PowerArchiver 2016 MSI installer extracted from PowerArchiver's .exe file. There's no way to omit extracting window, if you use self-extracting exe, so I use extracted msi package instead.
 </description>
     <projectUrl>https://www.powerarchiver.com/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/jack1142/choco-auto/e60d2f3572d9ca1a5cf4137c3807be721eb80363/powerarchiver2016/icons/powerarchiver2016.png</iconUrl>
+    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/manual/powerarchiver2016/icons/powerarchiver2016.png</iconUrl>
     <licenseUrl>https://wiki.powerarchiver.com/en:help:additional_information:license</licenseUrl>
     <docsUrl>https://wiki.powerarchiver.com</docsUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>PowerArchiver 2016</summary>
     <tags>powerarchiver trial rar compression archive admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/powerarchiver2016</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/manual/powerarchiver2016</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

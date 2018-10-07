@@ -14,7 +14,7 @@ $packageArgs = @{
   file                   = $fileLocation
   silentArgs             = '/qn /norestart'
   validExitCodes         = @(0)
-  softwareName           = 'PowerArchiver 2016 *'
+  softwareName           = 'PowerArchiver 2016'
 };
 
 Install-ChocolateyInstallPackage @packageArgs
