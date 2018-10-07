@@ -8,6 +8,6 @@ $packageArgs = @{
   checksumType           = 'sha256'
   silentArgs             = '/qn /norestart'
   validExitCodes         = @(0)
-  softwareName           = 'Chrome Remote Desktop Host *'
+  softwareName           = 'Chrome Remote Desktop Host'
 }
 Install-ChocolateyPackage @packageArgs
