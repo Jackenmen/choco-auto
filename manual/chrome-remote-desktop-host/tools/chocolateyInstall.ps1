@@ -1,5 +1,16 @@
 ﻿$ErrorActionPreference = 'Stop'
  
+[array]$key = Get-UninstallRegistryKey -SoftwareName "Chrome Remote Desktop Host"
+$alreadyInstalled = $false
+
+if ($key.Count -ne 0) {
+  $key | ForEach-Object {
+    if ($_.DisplayVersion -eq '70.0.3538.48') {
+      $alreadyInstalled = $true
+    }
+  }
+}
+
 $packageArgs = @{
   packageName            = 'chrome-remote-desktop-host'
   fileType               = 'msi'
@@ -10,4 +21,9 @@ $packageArgs = @{
   validExitCodes         = @(0)
   softwareName           = 'Chrome Remote Desktop Host'
 }
-Install-ChocolateyPackage @packageArgs
+
+if ($alreadyInstalled) {
+  Write-Host "Chrome Remote Desktop Host $version is already installed."
+} else {
+  Install-ChocolateyPackage @packageArgs
+}
