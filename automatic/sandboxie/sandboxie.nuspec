@@ -8,7 +8,7 @@
     <owners>dtgm, jack1142</owners>
     <licenseUrl>http://www.sandboxie.com/index.php?EndUserLicenseAgreement</licenseUrl>
     <projectUrl>http://www.sandboxie.com/</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/eeff633ae1f1627cd55d3121ed91fe1638553587/automatic/sandboxie/icons/sandboxie.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@eeff633ae1f1627cd55d3121ed91fe1638553587/automatic/sandboxie/icons/sandboxie.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A process sandbox helps to manage and limit access permissions a process has to your data.  Use it to safely test new software for usability, safely study behavior of known spyware and malware, or browse the web from a sandboxed browser to completely shield your computer and network from Internet Bad Things.
 
