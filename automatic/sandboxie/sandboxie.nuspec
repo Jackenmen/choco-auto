@@ -44,7 +44,7 @@
     <tags>security virtualization forensics shareware nagscreen admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/sandboxie</packageSourceUrl>
     <dependencies>
-      <dependency id="sandboxie.install" version="5.27.2-beta" />
+      <dependency id="sandboxie.install" version="[5.27.2-beta]" />
     </dependencies>
   </metadata>
   <files>
