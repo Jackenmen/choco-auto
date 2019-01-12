@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>sandboxie</id>
-    <version>5.27.2-beta</version>
+    <version>5.26.20190112</version>
     <title>Sandboxie</title>
     <authors>Ronen "tzuk" Tzur</authors>
     <owners>dtgm, jack1142</owners>
@@ -44,7 +44,7 @@
     <tags>security virtualization forensics shareware nagscreen admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/sandboxie</packageSourceUrl>
     <dependencies>
-      <dependency id="sandboxie.install" version="[5.27.2-beta]" />
+      <dependency id="sandboxie.install" version="[5.26.20190112]" />
     </dependencies>
   </metadata>
   <files>
