@@ -8,8 +8,8 @@
     <owners>jack1142</owners>
     <description>Allows Audacity to import and export many additional audio formats such as AC3, AMR(NB), M4A and WMA, and to import audio from video files.</description>
     <projectUrl>https://lame.buanzo.org/</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/icons/audacity-ffmpeg.png</iconUrl>
-    <licenseUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/audacity-ffmpeg-license.txt</licenseUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/icons/audacity-ffmpeg.png</iconUrl>
+    <licenseUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/automatic/audacity-ffmpeg/audacity-ffmpeg-license.txt</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>FFmpeg for Audacity</summary>
     <tags>audacity-ffmpeg audacity ac3 amr m4a wma ffmpeg admin</tags>
