@@ -11,7 +11,7 @@
 Chrome Remote Desktop is fully cross-platform.  Provide remote assistance to Windows, Mac and Linux users, or access your Windows (XP and above) and Mac (OS X 10.6 and above) desktops at any time, all from the Chrome browser on virtually any device, including Chromebooks.
 </description>
     <projectUrl>https://chrome.google.com/remotedesktop</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/jack1142/choco-auto/192938c1acb29ee53c6fc8efd29ab6eccedb7fe5/manual/chrome-remote-desktop-host/icons/chrome-remote-desktop-host.png</iconUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@67a25bca73395a6c38abdc089e9098c06d3e398b/automatic/chrome-remote-desktop-host/icons/chrome-remote-desktop-host.png</iconUrl>
     <summary>Chrome Remote Desktop Host</summary>
     <tags>chrome remote control freeware cross-platform admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/manual/chrome-remote-desktop-host</packageSourceUrl>

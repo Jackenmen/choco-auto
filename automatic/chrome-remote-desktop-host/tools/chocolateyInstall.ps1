@@ -2,10 +2,11 @@
  
 [array]$key = Get-UninstallRegistryKey -SoftwareName "Chrome Remote Desktop Host"
 $alreadyInstalled = $false
+$version = '70.0.3538.48'
 
 if ($key.Count -ne 0) {
   $key | ForEach-Object {
-    if ($_.DisplayVersion -eq '70.0.3538.48') {
+    if ($_.DisplayVersion -eq $version) {
       $alreadyInstalled = $true
     }
   }
