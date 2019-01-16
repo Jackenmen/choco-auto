@@ -11,8 +11,8 @@ if ($key) {
 $packageArgs = @{
   packageName            = 'sandboxie.install'
   fileType               = 'exe'
-  url                    = 'https://www.sandboxie.com/attic/SandboxieInstall-526.exe'
-  checksum               = 'c736313c14844aeb134edd4d7a4e47ccb86e93f33adaeb0ac1f83369352487cd'
+  url                    = 'https://www.sandboxie.com/SandboxieInstall-527-3.exe'
+  checksum               = 'cfa5de62a43a1c01fd257989081632e02b343acdf8a1cadf5799a2e53a10ea7a'
   checksumType           = 'sha256'
   silentArgs             = $silentArgs
   validExitCodes         = @(0)
