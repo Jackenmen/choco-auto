@@ -64,6 +64,10 @@ function Get-Beta {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
     $regex   = 'SandboxieInstall-.+\.exe$'
     $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href
+    if (!$url) {
+        Write-Host "No links in beta thread on $releases"
+        return 'ignore'
+    }
     $version = [array]($url -split '-|.exe' | select -First 4 -Skip 1 | select -SkipLast 1)
     $version[0] = $version[0].Substring(0, 1) + '.' + $version[0].Substring(1)
     $version = $version -join '.'
