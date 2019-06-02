@@ -80,11 +80,22 @@ function Get-Beta {
 }
 
 function global:au_GetLatest {
-    $streams = [ordered] @{
-        stable = Get-Stable -domain $domain_stable -releases $releases_stable -title "Sandboxie"
-        beta = Get-Beta -domain $domain_beta -releases $releases_beta -title "Sandboxie Beta"
+    $streams = [ordered] @{}
+    $errors = [ordered] @{}
+    Try {
+        $streams['stable'] = Get-Stable -domain $domain_stable -releases $releases_stable -title "Sandboxie"
     }
-
+    Catch {
+        $errors['stable'] = $_
+    }
+    Try {
+        $streams['beta'] = Get-Beta -domain $domain_beta -releases $releases_beta -title "Sandboxie Beta"
+    }
+    Catch {
+        $errors['beta'] = $_
+    }
+    # uhh, so what should I do with errors?
+    Write-Host $errors
     return @{ Streams = $streams }
 }
 
