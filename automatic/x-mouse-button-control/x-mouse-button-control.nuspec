@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>x-mouse-button-control</id>
+    <title>X-Mouse Button Control</title>
+    <version></version>
+    <authors>Phillip Gibbons</authors>
+    <owners>jack1142</owners>
+    <description>X-Mouse Button Control is a free tool for Windows that allows you to re-configure and expand the capabilities of your mouse.</description>
+    <projectUrl>https://www.highrez.co.uk/downloads/XMouseButtonControl.htm</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@64d9c4707ffd27c1da284690be5ca314b4140ab7/automatic/x-mouse-button-control/icons/x-mouse-button-control.png</iconUrl>
+    <licenseUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@64d9c4707ffd27c1da284690be5ca314b4140ab7/automatic/x-mouse-button-control/x-mouse-button-control-license.txt</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>X-Mouse Button Control</summary>
+    <tags>x-mouse mouse button control utility productivity</tags>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/x-mouse-button-control</packageSourceUrl>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
