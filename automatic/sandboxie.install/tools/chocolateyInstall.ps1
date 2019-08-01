@@ -8,6 +8,21 @@ if ($key) {
   $silentArgs += ' /install'
 }
 
+$pp = Get-PackageParameters
+
+if ($pp.Language) {
+  if ($pp.Language -match '^\d+$') {
+    $pp.Language = $pp.Language -as [int32]
+  }
+  try {
+    $lang = [System.Globalization.Cultureinfo]::GetCultureInfo($pp.Language)
+  } catch {
+    Write-Error "Couldn't find locale '$($pp.Language)'. Aborting..."
+  }
+  Write-Host "Using language: $($lang.DisplayName)"
+  $silentArgs = "/lang=$($lang.LCID) $silentArgs"
+}
+
 $packageArgs = @{
   packageName            = 'sandboxie.install'
   fileType               = 'exe'

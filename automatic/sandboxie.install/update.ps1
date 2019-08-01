@@ -12,7 +12,7 @@ function global:au_SearchReplace {
             "(?i)(^\s*checksum\s*=\s*)('.*')"   = "`$1'$($Latest.Checksum)'"
         }
         "$($Latest.PackageName).nuspec" = @{
-            "(?i)(^\s*\<title\>).*(\<\/title\>)" = "`${1}$($Latest.Title) (Install) `${2}"
+            "(?i)(^\s*\<title\>).*(\<\/title\>)" = "`${1}$($Latest.Title) (Install)`${2}"
         }
     }
 }
@@ -86,16 +86,18 @@ function global:au_GetLatest {
         $streams['stable'] = Get-Stable -domain $domain_stable -releases $releases_stable -title "Sandboxie"
     }
     Catch {
+        $streams['stable'] = 'ignore'
         $errors['stable'] = $_
     }
     Try {
         $streams['beta'] = Get-Beta -domain $domain_beta -releases $releases_beta -title "Sandboxie Beta"
     }
     Catch {
+        $streams['beta'] = 'ignore'
         $errors['beta'] = $_
     }
-    # uhh, so what should I do with errors?
-    Write-Host $errors
+    # what should I actually do with errors? Maybe AU will provide sth better in future.
+    Write-Error $errors
     return @{ Streams = $streams }
 }
 
