@@ -26,8 +26,8 @@ if ($pp.Language) {
 $packageArgs = @{
   packageName            = 'sandboxie.install'
   fileType               = 'exe'
-  url                    = 'https://www.sandboxie.com/attic/SandboxieInstall-530.exe'
-  checksum               = '7b131a6b9fcfc8581749eaccd8bd15e9628bcfe94fe9e90f143dae1416e82d7f'
+  url                    = 'https://downloads.sophos.com/inst/GMNtRx6IQ6HmUvXYJRTPjQZD02MTA5/sandboxie/SandboxieInstall-531-4.exe'
+  checksum               = '4577a1f5af37a9d2203e62dd49da947c79f5a0b0c679dd8db601aab5c0d57c6a'
   checksumType           = 'sha256'
   silentArgs             = $silentArgs
   validExitCodes         = @(0)
