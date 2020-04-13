@@ -1,5 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 
+$toolsPath = Split-Path -parent $MyInvocation.MyCommand.Definition
+
 $silentArgs = '/S'
 $key = Get-UninstallRegistryKey -SoftwareName "Sandboxie *"
 if ($key) { 
