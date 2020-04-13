@@ -35,4 +35,4 @@ $packageArgs = @{
   softwareName           = 'Sandboxie *'
 }
 
-Install-ChocolateyPackage @packageArgs
+Install-ChocolateyInstallPackage @packageArgs
