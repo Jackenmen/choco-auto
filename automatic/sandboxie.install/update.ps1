@@ -24,6 +24,7 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
+    <#
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 
     $re = 'SandboxieInstall32-v\d+(\.\d+)+\.exe'
@@ -42,6 +43,16 @@ function global:au_GetLatest {
       URL32        = $url32
       URL64        = $url64
       Version      = $version32
+    }
+    #>
+    # I'm currently waiting for https://github.com/sandboxie/sandboxie repo
+    # to make a first release as I would want the chocolatey package
+    # to use the repo which will more closely follow original Sandboxie
+    # ref: https://github.com/jack1142/choco-auto/issues/2
+    @{
+      URL32        = "https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall32-v5.40.1.exe"
+      URL64        = "https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall64-v5.40.1.exe"
+      Version      = "5.40.1"
     }
 }
 
