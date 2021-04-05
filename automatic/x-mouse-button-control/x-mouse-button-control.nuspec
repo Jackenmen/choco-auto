@@ -13,7 +13,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>X-Mouse Button Control</summary>
     <tags>x-mouse mouse button control utility productivity</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/x-mouse-button-control</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/x-mouse-button-control</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

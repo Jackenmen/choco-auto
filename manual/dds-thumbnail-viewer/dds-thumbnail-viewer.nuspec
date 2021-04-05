@@ -13,7 +13,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>DDS Thumbnail Viewer</summary>
     <tags>dds thumbnail viewer freeware cross-platform batch admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/manual/dds-thumbnail-viewer</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/manual/dds-thumbnail-viewer</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

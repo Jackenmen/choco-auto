@@ -13,7 +13,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>Fast Image Resizer</summary>
     <tags>fastimageresizer fast image resizer freeware cross-platform batch admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/manual/fastimageresizer</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/manual/fastimageresizer</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

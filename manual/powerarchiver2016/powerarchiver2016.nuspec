@@ -19,7 +19,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>PowerArchiver 2016</summary>
     <tags>powerarchiver trial rar compression archive admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/manual/powerarchiver2016</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/manual/powerarchiver2016</packageSourceUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

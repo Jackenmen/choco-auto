@@ -41,7 +41,7 @@ Since version 5.31.4 Sandboxie is now available for free with no limitations. So
     <releaseNotes>https://github.com/xanasoft/Sandboxie/releases</releaseNotes>
     <copyright>© 2004-2019 Sandboxie Holdings LLC</copyright>
     <tags>security virtualization forensics admin</tags>
-    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/master/automatic/sandboxie.install</packageSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/sandboxie.install</packageSourceUrl>
   </metadata>
   <files>
     <file src="legal\**" target="legal" />
