@@ -10,7 +10,7 @@
     <projectUrl>https://www.sublimetext.com/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@ac2ee3f251f28874c5967cc153686e7ef25c5bb6/automatic/sublimetext4/icons/sublimetext4.png</iconUrl>
     <licenseUrl>https://www.sublimetext.com/eula</licenseUrl>
-    <docsUrl>https://www.sublimetext.com/support</licenseUrl>
+    <docsUrl>https://www.sublimetext.com/support</docsUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>FFmpeg for Audacity</summary>
     <tags>sublime text editor development ide trial admin</tags>
