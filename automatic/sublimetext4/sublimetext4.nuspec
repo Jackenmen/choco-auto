@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>sublimetext4</id>
+    <title>Sublime Text 4</title>
+    <version></version>
+    <authors>Sublime HQ Pty Ltd</authors>
+    <owners>jack1142</owners>
+    <description>The sophisticated text editor for code, markup and prose.</description>
+    <projectUrl>https://www.sublimetext.com/</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@ac2ee3f251f28874c5967cc153686e7ef25c5bb6/automatic/sublimetext4/icons/sublimetext4.png</iconUrl>
+    <licenseUrl>https://www.sublimetext.com/eula</licenseUrl>
+    <docsUrl>https://www.sublimetext.com/support</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <summary>FFmpeg for Audacity</summary>
+    <tags>sublime text editor development ide trial admin</tags>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/sublimetext4</packageSourceUrl>
+    <releaseNotes>https://www.sublimetext.com/download</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
