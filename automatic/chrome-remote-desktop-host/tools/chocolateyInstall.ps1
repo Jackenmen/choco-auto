@@ -2,7 +2,7 @@
  
 [array]$key = Get-UninstallRegistryKey -SoftwareName "Chrome Remote Desktop Host"
 $alreadyInstalled = $false
-$version = '89.0.4389.25'
+$version = '92.0.4515.41'
 
 if ($key.Count -ne 0) {
   $key | ForEach-Object {
@@ -16,7 +16,7 @@ $packageArgs = @{
   packageName            = 'chrome-remote-desktop-host'
   fileType               = 'msi'
   url                    = 'https://dl.google.com/dl/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi'
-  checksum               = '94555f4aa93008f7d2908a636fe8dfefe490b0d356d498e5bdeb29a190cfd86a'
+  checksum               = 'b10d283364a5a4afbdb1ec5cd1971b60e29174a593a9bf7cca5bf717451cde5e'
   checksumType           = 'sha256'
   silentArgs             = '/qn /norestart'
   validExitCodes         = @(0)
