@@ -21,7 +21,7 @@ function global:au_GetLatest {
      $buildNumber = $releaseInformation.latest_version
      $downloadUrl = $downloadUrlFormat -f $buildNumber
 
-     return @{ Version = "4.0.0.$(buildNumber)00"; URL = $downloadUrl }
+     return @{ Version = "4.0.0.$($buildNumber)00"; URL = $downloadUrl }
 }
 
 update -ChecksumFor none
