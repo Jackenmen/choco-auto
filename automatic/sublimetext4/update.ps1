@@ -62,8 +62,9 @@ function global:au_GetLatest {
         }
     }
 
-    if ($errors.Count)
+    if ($errors.Count) {
         Write-Error $errors
+    }
 
     return @{ Streams = $streams }
 }
