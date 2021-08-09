@@ -25,7 +25,7 @@ function global:au_SearchReplace {
           "(?i)(\s*the FFmpeg COMPRESSED PACKAGE.*)\<.*\>" = "`${1}<$($Latest.ZipUrl)>"
         }
         ".\tools\chocolateyInstall.ps1" = @{
-            "(?i)(^\s*file64\s*=\s*)('.*')" = "`$1'$($Latest.FileName64)'"
+            "(?i)(^\s*file64\s*=\s*`"[$]toolsPath\\).*" = "`${1}$($Latest.FileName64)`""
         }
     }
 }
