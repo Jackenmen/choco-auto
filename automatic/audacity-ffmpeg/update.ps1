@@ -54,7 +54,7 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing -Headers $headers
      $regex = 'FFmpeg_v(\d+(?:\.\d+)*)_for_Audacity_on_Windows_64bit.exe$'
      $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href
      $version = $Matches[1]
