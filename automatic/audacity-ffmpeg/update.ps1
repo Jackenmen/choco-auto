@@ -1,36 +1,67 @@
 import-module au
 
-$releases = 'https://lame.buanzo.org/'
+$domain = [Uri]'https://lame.buanzo.org'
+$releases = [Uri]::new($domain, '/ffmpeg64audacity.php').AbsoluteUri
 
+$user_agent = 'Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0'
 $headers = @{
-    Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
-    Referer = 'https://lame.buanzo.org/';
-  }
+    Referer = $releases;
+}
 
-$options =
-@{
-  Headers = $headers
+$options = @{
+    Headers = @{
+        Referer = $releases;
+        'User-Agent' = $user_agent;
+    }
 }
 
 function global:au_SearchReplace {
-   @{
+    @{
+        ".\legal\VERIFICATION.txt" = @{
+          "(?i)(^\s*location on\:?\s*)\<.*\>" = "`${1}<$releases>"
+          "(?i)(\s*64\-Bit Software.*)\<.*\>" = "`${1}<$($Latest.Url64)>"
+          "(?i)(^\s*checksum\s*type\:).*" = "`${1} $($Latest.ChecksumType64)"
+          "(?i)(^\s*checksum64\:).*" = "`${1} $($Latest.Checksum64)"
+          "(?i)(\s*the FFmpeg COMPRESSED PACKAGE.*)\<.*\>" = "`${1}<$($Latest.ZipUrl)>"
+        }
         ".\tools\chocolateyInstall.ps1" = @{
-            "(?i)(^\s*url\s*=\s*)('.*')"        = "`$1'$($Latest.URL)'"
-            "(?i)(^\s*checksum\s*=\s*)('.*')"   = "`$1'$($Latest.Checksum)'"
+            "(?i)(^\s*file64\s*=\s*)('.*')" = "`$1'$($Latest.FileName64)'"
         }
     }
 }
 
 function global:au_BeforeUpdate {
-    $Latest.Checksum = Get-RemoteChecksum $Latest.URL -Headers $headers
+    function name4url($url) {
+        $res = $url -split '/' | Select-Object -Last 1
+        $res -replace '\.[^.]+$'
+    }
+
+    New-Item -Type Directory tools -ea 0 | Out-Null
+    $toolsPath = Resolve-Path tools
+
+    Write-Host 'Purging' exe
+    $purgePath = "$toolsPath{0}*.exe" -f [IO.Path]::DirectorySeparatorChar
+    Remove-Item -Force $purgePath -ea ignore
+
+    $base_name = name4url $Latest.Url64
+    $file_name = "$base_name.exe"
+    $file_path = Join-Path $toolsPath $file_name
+
+    Invoke-WebRequest $Latest.Url64 -OutFile $file_path -UseBasicParsing -Headers $Headers
+    $Latest.Checksum64 = Get-FileHash $file_path -Algorithm sha256 | ForEach-Object Hash
+    $Latest.ChecksumType64 = 'sha256'
+    $Latest.FileName64 = $file_name
 }
 
 function global:au_GetLatest {
      $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-     $regex   = 'ffmpeg-win-.+\.exe$'
+     $regex = 'FFmpeg_v(\d+(?:\.\d+)*)_for_Audacity_on_Windows_64bit.exe$'
      $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href
-     $version = $url -split '-|.exe' | select -Last 1 -Skip 1
-     return @{ Version = $version; URL = $url; Options = $options }
+     $version = $Matches[1]
+     $url = [Uri]::new($domain, $url).AbsoluteUri
+     $zip_url = $url.SubString(0, $url.length - 3) + 'zip'
+
+     return @{ Version = $version; Url64 = $url; ZipUrl = $zip_url; Options = $options }
 }
 
 update -ChecksumFor none
