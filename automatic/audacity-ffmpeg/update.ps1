@@ -47,7 +47,7 @@ function global:au_BeforeUpdate {
     $file_name = "$base_name.exe"
     $file_path = Join-Path $toolsPath $file_name
 
-    Invoke-WebRequest $Latest.Url64 -OutFile $file_path -UseBasicParsing -Headers $Headers
+    Invoke-WebRequest $Latest.Url64 -OutFile $file_path -UseBasicParsing -Headers $Headers -UserAgent $user_agent
     $Latest.Checksum64 = Get-FileHash $file_path -Algorithm sha256 | ForEach-Object Hash
     $Latest.ChecksumType64 = 'sha256'
     $Latest.FileName64 = $file_name

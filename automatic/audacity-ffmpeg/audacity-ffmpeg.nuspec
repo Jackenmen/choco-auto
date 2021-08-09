@@ -15,10 +15,11 @@
     <tags>audacity-ffmpeg audacity ac3 amr m4a wma ffmpeg admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/audacity-ffmpeg</packageSourceUrl>
 	<dependencies>
-      <dependency id="audacity" version="2.1.2" />
+      <dependency id="audacity" version="3.0.3" />
     </dependencies>
   </metadata>
   <files>
+    <file src="legal\**" target="legal" />
     <file src="tools\**" target="tools" />
   </files>
 </package>
