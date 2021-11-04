@@ -3,19 +3,19 @@ Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
 
 The embedded software have been downloaded from the listed download
-location on <https://github.com/xanasoft/Sandboxie/releases>
+location on <>
 and can be verified by doing the following:
 
 1. Download the following:
-  32-Bit software: <https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall32-v5.40.1.exe>
-  64-Bit software: <https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall64-v5.40.1.exe>
+  32-Bit software: <>
+  64-Bit software: <>
 2. Get the checksum using one of the following methods:
   - Using powershell function 'Get-FileHash'
   - Use chocolatey utility 'checksum.exe'
 3. The checksums should match the following:
 
-  checksum type: sha256
-  checksum32: 66D18100B736C8A7640B7C16AF786C7F51184B5CECE8EB45E4E7FEF3EB155F99
-  checksum64: ED8F5694EFB37613169E7CCDA694DB2610DFD9CFC0BB2423C618725179E08CFF
+  checksum type:
+  checksum32:
+  checksum64:
 
-The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/xanasoft/Sandboxie/345bb57d3b878dbc11d8bd6928e5f30dff04ca38/LICENSE>
+The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/68fa37d45be2be3565917d0de097709b7aa009e0/LICENSE>

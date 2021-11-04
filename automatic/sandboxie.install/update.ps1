@@ -1,6 +1,6 @@
 import-module au
 
-$releases = 'https://github.com/xanasoft/Sandboxie/releases'
+$releases = 'https://api.github.com/repos/sandboxie-plus/Sandboxie/releases/latest'
 
 function global:au_SearchReplace {
     @{
@@ -24,35 +24,42 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-    <#
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $release_data = Invoke-RestMethod $releases
 
-    $re = 'SandboxieInstall32-v\d+(\.\d+)+\.exe'
-    $url32 = $download_page.Links | ? href -match $re | select -first 1 -expand href | % { 'https://github.com' + $_ }
-
-    $re = 'SandboxieInstall64-v\d+(\.\d+)+\.exe'
-    $url64 = $download_page.links | ? href -match $re | select -first 1 -expand href | % { 'https://github.com' + $_ }
-
-    $verRe = 'SandboxieInstall(?:32|64)-v|\.exe'
-    $version32 = $url32 -split "$verRe" | select -first 1 -skip 1
-    $version64 = $url64 -split "$verRe" | select -first 1 -skip 1
-    if ($version32 -ne $version64) {
-      throw "32bit version do not match the 64bit version"
+    $re = 'Release\sv(?<plus>\d+(?:\.\d)+(?<plus_letter>[a-z]?))\s+\/\s+(?<classic>\d+(?:\.\d+)+)\s*'
+    if (!($release_data.name -match $re)) {
+        throw "Can't find version numbers"
     }
-    @{
-      URL32        = $url32
-      URL64        = $url64
-      Version      = $version32
+    $version = $matches['classic']
+    $dot_count = ($version.Length - $version.replace('.', '').Length)
+    if ($dot_count -eq 3) {
+        $version += '00'
+    } elseif ($dot_count -gt 3) {
+        throw 'Version number has too many segments'
     }
-    #>
-    # I'm currently waiting for https://github.com/sandboxie/sandboxie repo
-    # to make a first release as I would want the chocolatey package
-    # to use the repo which will more closely follow original Sandboxie
-    # ref: https://github.com/jack1142/choco-auto/issues/2
+
+    $urls = @{
+        '86' = ''
+        '64' = ''
+    }
+
+    foreach ($asset in $release_data.assets) {
+        $re = 'Sandboxie-Classic-x(86|64).*\.exe'
+        if ($asset.name -match $re) {
+            $urls[$matches[1]] = $asset.browser_download_url
+        }
+    }
+
+    foreach ($url_data in $urls.GetEnumerator()) {
+        if (!$url_data.Value) {
+            throw "Can't find URL for x$($url_data.Name) version"
+        }
+    }
+
     @{
-      URL32        = "https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall32-v5.40.1.exe"
-      URL64        = "https://github.com/xanasoft/Sandboxie/releases/download/v5.40.1/SandboxieInstall64-v5.40.1.exe"
-      Version      = "5.40.1"
+      URL32        = $urls['86']
+      URL64        = $urls['64']
+      Version      = $version
     }
 }
 

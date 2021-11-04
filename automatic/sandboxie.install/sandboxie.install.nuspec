@@ -2,20 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>sandboxie.install</id>
-    <version>5.40.1.20200413</version>
-    <title>Sandboxie (Install)</title>
-    <authors>Ronen "tzuk" Tzur</authors>
+    <version></version>
+    <title>Sandboxie Classic (Install)</title>
+    <authors>David Xanatos, Sophos Group plc, Invincea Inc., Ronen Tzur</authors>
     <owners>dtgm, jack1142</owners>
-    <licenseUrl>https://raw.githubusercontent.com/xanasoft/Sandboxie/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/xanasoft/Sandboxie</projectUrl>
-    <projectSourceUrl>https://github.com/xanasoft/Sandboxie</projectSourceUrl>
-    <bugTrackerUrl>https://github.com/xanasoft/Sandboxie/issues</bugTrackerUrl>
+    <licenseUrl>https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/sandboxie-plus/Sandboxie</projectUrl>
+    <projectSourceUrl>https://github.com/sandboxie-plus/Sandboxie</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/sandboxie-plus/Sandboxie/issues</bugTrackerUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/jack1142/choco-auto@eeff633ae1f1627cd55d3121ed91fe1638553587/automatic/sandboxie/icons/sandboxie.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A process sandbox helps to manage and limit access permissions a process has to your data.  Use it to safely test new software for usability, safely study behavior of known spyware and malware, or browse the web from a sandboxed browser to completely shield your computer and network from Internet Bad Things.
 
 ## Parameters
-- `/Language:LANG_CODE` - The installation language. Defaults to English. Replace `LANG_CODE` with LCID code (e.g. 1033 for US English) or BCP-47 language tag (e.g. en-US for US English) for your language. [List of supported languages](https://github.com/jack1142/choco-auto/blob/master/automatic/sandboxie.install/LANGUAGES.md)
+- `/Language:LANG_CODE` - The installation language. Defaults to English. Replace `LANG_CODE` with LCID code (e.g. 1033 for US English) or BCP-47 language tag (e.g. en-US for US English) for your language. [List of supported languages](https://github.com/jack1142/choco-auto/blob/main/automatic/sandboxie.install/LANGUAGES.md)
 
 These parameters can be passed to the installer with the use of `--params`.
 For example: `--params '"/Language:en-US"'`
@@ -30,16 +30,13 @@ For example: `--params '"/Language:en-US"'`
 Since version 5.31.4 Sandboxie is now available for free with no limitations. Sophos open sourced the program on April 8th, 2020.
 
 ### Documentation
-* [How it works](http://www.sandboxie.com/HowItWorks)
-* [FAQ](http://www.sandboxie.com/FrequentlyAskedQuestions)
-* [Manual](http://www.sandboxie.com/HelpTopics)
-* [Known program conflicts](http://www.sandboxie.com/KnownConflicts)
+* [Documentation](https://sandboxie-plus.github.io/sandboxie-docs/)
 
 ### Community
-* [Forum](https://community.sophos.com/products/sandboxie/f/forum)</description>
+* [GitHub Discussions](https://github.com/sandboxie-plus/Sandboxie/discussions)</description>
     <summary>Executes processes in a protected, isolated space, otherwise known as a "sandbox"</summary>
-    <releaseNotes>https://github.com/xanasoft/Sandboxie/releases</releaseNotes>
-    <copyright>© 2004-2019 Sandboxie Holdings LLC</copyright>
+    <releaseNotes>https://github.com/sandboxie-plus/Sandboxie/releases</releaseNotes>
+    <copyright>2020-present David Xanatos, 2017-2020 Sophos Group plc, 2013-2017 Invincea Inc., 2004-2013 Ronen Tzur</copyright>
     <tags>security virtualization forensics admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/sandboxie.install</packageSourceUrl>
   </metadata>
