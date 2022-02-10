@@ -26,7 +26,7 @@ function global:au_BeforeUpdate {
 function global:au_GetLatest {
     $release_data = Invoke-RestMethod $releases
 
-    $re = 'Release\sv(?<plus>\d+(?:\.\d)+(?<plus_letter>[a-z]?))\s+\/\s+(?<classic>\d+(?:\.\d+)+)\s*'
+    $re = 'Release\sv(?<plus>\d+(?:\.\d+)+(?<plus_letter>[a-z]?))\s+\/\s+(?<classic>\d+(?:\.\d+)+)\s*'
     if (!($release_data.name -match $re)) {
         throw "Can't find version numbers"
     }
