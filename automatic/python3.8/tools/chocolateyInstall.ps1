@@ -10,8 +10,8 @@ if ((Get-OSArchitectureWidth 32) -or $env:ChocolateyForceX86 -eq 'true') {
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
   fileType       = 'exe'
-  file           = "$toolsPath\"
-  file64         = "$toolsPath\"
+  file           = "$toolsPath\python-3.8.10.exe"
+  file64         = "$toolsPath\python-3.8.10-amd64.exe"
   silentArgs     = '/quiet InstallAllUsers=1 PrependPath=1 TargetDir="{0}"' -f $targetDir
   validExitCodes = @(0)
   softwareName   = 'Python 3.8.*'
