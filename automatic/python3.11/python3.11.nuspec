@@ -12,6 +12,7 @@
     <licenseUrl>https://docs.python.org/3.11/license.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/python/cpython</projectSourceUrl>
+    <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/python3.11</packageSourceUrl>
     <docsUrl>https://docs.python.org/3.11/</docsUrl>
     <mailingListUrl>https://www.python.org/community/lists/</mailingListUrl>
     <bugTrackerUrl>https://github.com/python/cpython/issues</bugTrackerUrl>
