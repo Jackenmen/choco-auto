@@ -22,9 +22,6 @@ function global:au_SearchReplace {
           "(?i)(^\s*file\s*=\s*`"[$]toolsPath\\).*"   = "`${1}$($Latest.FileName32)`""
           "(?i)(^\s*file64\s*=\s*`"[$]toolsPath\\).*" = "`${1}$($Latest.FileName64)`""
         }
-        "$($Latest.PackageName).nuspec" = @{
-            "(?smi)(\<copyright\>).*?(\</copyright\>)" = "`${1}$($Latest.Copyright)`$2"
-        }
     }
 }
 
@@ -65,6 +62,14 @@ function global:au_BeforeUpdate {
         }
     }
     $Latest.Copyright = $copyright.Trim()
+}
+
+function global:au_AfterUpdate($Package) {
+    $cdata = $Package.NuspecXml.CreateCDataSection($Latest.Copyright)
+    $xml_Copyright = $Package.NuspecXml.GetElementsByTagName('copyright')[0]
+    $xml_Copyright.RemoveAll()
+    $xml_Copyright.AppendChild($cdata) | Out-Null
+    $Package.SaveNuspec()
 }
 
 function global:au_GetLatest {
