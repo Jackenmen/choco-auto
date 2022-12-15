@@ -1,5 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 
+Uninstall-BinFile -Name 'subl'
+
 $packageName = $env:ChocolateyPackageName
 $softwareName = 'Sublime Text'
 
