@@ -3,8 +3,8 @@
 $packageArgs = @{
     packageName            = $env:ChocolateyPackageName
     fileType               = 'exe'
-    url                    = 'https://dvps.highrez.co.uk/downloads/XMouseButtonControlSetup.2.20.4.exe'
-    checksum               = 'ce0851dfb69a11af504035b70aa271ea4937a7c3410e4fb580ae42581d7575c3'
+    url                    = 'https://dvps.highrez.co.uk/downloads/XMouseButtonControlSetup.2.20.5.exe'
+    checksum               = '2240bf5fb5d80938b0676c46ef9f84bc1739c32f60c473ff85e530ae0eca2818'
     checksumType           = 'sha256'
     silentArgs             = '/S'
     validExitCodes         = @(0)
