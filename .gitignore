@@ -1,5 +1,6 @@
 *.nupkg
 *.exe
+*.msi
 *.zip
 update_vars.ps1
 Update-AUPackages.md
