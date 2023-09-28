@@ -28,8 +28,8 @@ if ($pp.Language) {
 $packageArgs = @{
   packageName            = 'sandboxie.install'
   fileType               = 'exe'
-  file                   = "$toolsPath\Sandboxie-Classic-x86-v5.66.2.exe"
-  file64                 = "$toolsPath\Sandboxie-Classic-x64-v5.66.2.exe"
+  file                   = "$toolsPath\Sandboxie-Classic-x86-v5.66.3.exe"
+  file64                 = "$toolsPath\Sandboxie-Classic-x64-v5.66.3.exe"
   silentArgs             = $silentArgs
   validExitCodes         = @(0)
   softwareName           = 'Sandboxie *'
