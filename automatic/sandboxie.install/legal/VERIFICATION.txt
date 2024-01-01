@@ -18,4 +18,4 @@ and can be verified by doing the following:
   checksum32: 705A0125CA53260700A3DAC613FF58CD3A293C06B8C56023ECCE0F3C2953D535
   checksum64: 3B12F0E60E7F47A613390CE74C4F8C02BA0A7709779DA465FB2FD38348CAD8CD
 
-The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/68fa37d45be2be3565917d0de097709b7aa009e0/LICENSE>
+The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/8854fdbbe4658f04bde2e9c394ef09a22b33893d/LICENSE.Classic>

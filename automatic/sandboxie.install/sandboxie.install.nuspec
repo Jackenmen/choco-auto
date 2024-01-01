@@ -6,7 +6,7 @@
     <title>Sandboxie Classic (Install)</title>
     <authors>David Xanatos, Sophos Group plc, Invincea Inc., Ronen Tzur</authors>
     <owners>dtgm, jack1142</owners>
-    <licenseUrl>https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/master/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/master/LICENSE.Classic</licenseUrl>
     <projectUrl>https://github.com/sandboxie-plus/Sandboxie</projectUrl>
     <projectSourceUrl>https://github.com/sandboxie-plus/Sandboxie</projectSourceUrl>
     <bugTrackerUrl>https://github.com/sandboxie-plus/Sandboxie/issues</bugTrackerUrl>
