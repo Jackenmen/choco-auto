@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>sandboxie-plus.install</id>
-    <version>1.12.5</version>
+    <version>1.12.6</version>
     <title>Sandboxie Plus (Install)</title>
     <authors>David Xanatos, Sophos Group plc, Invincea Inc., Ronen Tzur</authors>
     <owners>jack1142</owners>
