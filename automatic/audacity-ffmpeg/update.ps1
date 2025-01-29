@@ -1,18 +1,28 @@
 import-module au
 
 $domain = [Uri]'https://lame.buanzo.org'
-$releases = [Uri]::new($domain, '/ffmpeg64audacity.php').AbsoluteUri
+$releases = [Uri]::new($domain, '/ffmpeg.php').AbsoluteUri
 
-$user_agent = 'Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0'
+$user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36';
 $headers = @{
-    Referer = $releases;
+    "Accept" = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7';
+    "Accept-Encoding" = 'gzip, deflate, br, zstd';
+    "Accept-Language" = 'en-GB,en-US;q=0.9,en;q=0.8';
+    "Host" = 'lame.buanzo.org';
+    "sec-ch-ua" = '"Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"';
+    "sec-ch-ua-mobile" = '?0';
+    "sec-ch-ua-platform" = '"Windows"';
+    "Sec-Fetch-Dest" = 'document';
+    "Sec-Fetch-Mode" = 'navigate';
+    "Sec-Fetch-Site" = 'none';
+    "Sec-Fetch-User" = '?1';
+    "Upgrade-Insecure-Requests" = '1';
+    "User-Agent" = $user_agent;
 }
+$headers_with_referer = $base_headers + @{Referer = $releases};
 
 $options = @{
-    Headers = @{
-        Referer = $releases;
-        'User-Agent' = $user_agent;
-    }
+    Headers = $headers_with_referer;
 }
 
 function global:au_SearchReplace {
@@ -47,7 +57,7 @@ function global:au_BeforeUpdate {
     $file_name = "$base_name.exe"
     $file_path = Join-Path $toolsPath $file_name
 
-    Invoke-WebRequest $Latest.Url64 -OutFile $file_path -UseBasicParsing -Headers $Headers -UserAgent $user_agent
+    Invoke-WebRequest $Latest.Url64 -OutFile $file_path -UseBasicParsing -Headers $headers_with_referer -UserAgent $user_agent
     $Latest.Checksum64 = Get-FileHash $file_path -Algorithm sha256 | ForEach-Object Hash
     $Latest.ChecksumType64 = 'sha256'
     $Latest.FileName64 = $file_name
@@ -55,7 +65,7 @@ function global:au_BeforeUpdate {
 
 function global:au_GetLatest {
      $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing -Headers $headers -UserAgent $user_agent
-     $regex = 'FFmpeg_v(\d+(?:\.\d+)*)_for_Audacity_on_Windows_64bit.exe$'
+     $regex = 'FFmpeg_(\d+(?:\.\d+)*)_for_Audacity_on_Windows_x86_64\.exe$'
      $url     = $download_page.links | ? href -match $regex | select -First 1 -expand href
      $version = $Matches[1]
      $url = [Uri]::new($domain, $url).AbsoluteUri
