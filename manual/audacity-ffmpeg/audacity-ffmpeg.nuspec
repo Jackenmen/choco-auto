@@ -3,7 +3,7 @@
   <metadata>
     <id>audacity-ffmpeg</id>
     <title>FFmpeg for Audacity</title>
-    <version>2.2.2.20210809</version>
+    <version>5.0.0</version>
     <authors>Arturo Busleiman (Buanzo)</authors>
     <owners>jack1142</owners>
     <description>Allows Audacity to import and export many additional audio formats such as AC3, AMR(NB), M4A and WMA, and to import audio from video files.</description>
@@ -21,6 +21,6 @@
   <files>
     <file src="legal\**" target="legal" />
     <file src="tools\*.ps1" target="tools\" />
-    <file src="tools\FFmpeg_v2.2.2_for_Audacity_on_Windows_64bit.exe" target="tools\FFmpeg_v2.2.2_for_Audacity_on_Windows_64bit.exe" />
+    <file src="tools\FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe" target="tools\FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe" />
   </files>
 </package>

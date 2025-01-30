@@ -7,8 +7,8 @@ location on <https://lame.buanzo.org/ffmpeg.php>
 and can be verified by doing the following:
 
 1. Go to <https://lame.buanzo.org/ffmpeg.php>.
-2. Click on "" link to download
-   the following software: <>
+2. Click on "FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe" link to download
+   the following software: <https://lame.buanzo.org/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe>
    NOTE: It is necessary to download by going from <https://lame.buanzo.org/ffmpeg.php>
    as the site verifiers "Referer" header.
 3. Get the checksum using one of the following methods:
@@ -16,10 +16,10 @@ and can be verified by doing the following:
   - Use chocolatey utility 'checksum.exe'
 4. The checksums should match the following:
 
-  checksum type:
-  checksum64:
+  checksum type: sha256
+  checksum64: 9B31E2402CB27C76D56F252E3D6E1BBB4D82526EB93A0FFAB7B25193F25DE072
 
 The content of the 'LICENSE.txt' file have been obtained from
-the FFmpeg installer <>
+the FFmpeg installer <https://lame.buanzo.org/FFmpeg_5.0.0_for_Audacity_on_Windows_x86_64.exe>
 by manually opening it and copying the contents shown in the first step ("License Agreement")
 of the setup wizard.
