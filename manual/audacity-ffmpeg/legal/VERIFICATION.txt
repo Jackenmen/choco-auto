@@ -3,18 +3,23 @@ Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
 
 The embedded software have been downloaded from the listed download
-location on <https://lame.buanzo.org/ffmpeg64audacity.php>
+location on <https://lame.buanzo.org/ffmpeg.php>
 and can be verified by doing the following:
 
-1. Download the following:
-  64-Bit Software: <https://lame.buanzo.org/FFmpeg_v2.2.2_for_Audacity_on_Windows_64bit.exe>
-2. Get the checksum using one of the following methods:
+1. Go to <https://lame.buanzo.org/ffmpeg.php>.
+2. Click on "" link to download
+   the following software: <>
+   NOTE: It is necessary to download by going from <https://lame.buanzo.org/ffmpeg.php>
+   as the site verifiers "Referer" header.
+3. Get the checksum using one of the following methods:
   - Using powershell function 'Get-FileHash'
   - Use chocolatey utility 'checksum.exe'
-3. The checksums should match the following:
+4. The checksums should match the following:
 
-  checksum type: sha256
-  checksum64: 3E8F6C3D52F16F469D26525B4392E9A0BEFAEE5CD287CAF5638E15E02049ADCE
+  checksum type:
+  checksum64:
 
-The file 'LICENSE.txt' has been obtained from the FFmpeg COMPRESSED PACKAGE <https://lame.buanzo.org/FFmpeg_v2.2.2_for_Audacity_on_Windows_64bit.zip>
-and can also be found in the installer linked above.
+The content of the 'LICENSE.txt' file have been obtained from
+the FFmpeg installer <>
+by manually opening it and copying the contents shown in the first step ("License Agreement")
+of the setup wizard.
