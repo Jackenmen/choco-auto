@@ -7,15 +7,15 @@ location on <https://api.github.com/repos/sandboxie-plus/Sandboxie/releases/late
 and can be verified by doing the following:
 
 1. Download the following:
-  32-Bit software: <https://github.com/sandboxie-plus/Sandboxie/releases/download/v1.15.10/Sandboxie-Plus-x86-v1.15.10.exe>
-  64-Bit software: <https://github.com/sandboxie-plus/Sandboxie/releases/download/v1.15.10/Sandboxie-Plus-x64-v1.15.10.exe>
+  32-Bit software: <https://github.com/sandboxie-plus/Sandboxie/releases/download/v1.15.11/Sandboxie-Plus-x86-v1.15.11.exe>
+  64-Bit software: <https://github.com/sandboxie-plus/Sandboxie/releases/download/v1.15.11/Sandboxie-Plus-x64-v1.15.11.exe>
 2. Get the checksum using one of the following methods:
   - Using powershell function 'Get-FileHash'
   - Use chocolatey utility 'checksum.exe'
 3. The checksums should match the following:
 
   checksum type: sha256
-  checksum32: B6B7A301802B3FC4B501E5E8466D12917D10D485FC24C3DBF62FB6F490217458
-  checksum64: 851B430FD2305AC434142704BA1861991E75A4ED3FFC1E90751E3D48D3C7FAFB
+  checksum32: BE138668348AD0760D64827522CC3612EE0CA089E4A962B5CE6D6CFE7B085411
+  checksum64: FB2658ACC690D4B89AC43B786F146072E215792E1414D73FDFEA7C25E2F9FC14
 
 The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/8854fdbbe4658f04bde2e9c394ef09a22b33893d/LICENSE.Plus>
