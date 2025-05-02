@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>pymanager</id>
+    <version></version>
+    <title>Python Install Manager</title>
+    <authors>Python Software Foundation</authors>
+    <owners>jack1142</owners>
+    <licenseUrl>https://raw.githubusercontent.com/python/pymanager/refs/heads/main/LICENSE</licenseUrl>
+    <projectUrl>https://www.python.org/</projectUrl>
+    <projectSourceUrl>https://github.com/python/pymanager</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/python/pymanager/issues</bugTrackerUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/Jackenmen/choco-auto@840c0973b9e9ce29db4c32af8d9193b80e9e4b1c/automatic/pymanager/icons/pymanager.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Python install manager helps you to install, manage, and launch Python on Windows.
+
+After install, the "py" command is your tool of choice - try "py help" to see what it can do! (Not working? You may need to uninstall the old "Python launcher", and check "Manage app execution aliases" to ensure the command is enabled.)
+
+Complete documentation is available at http://docs.python.org/3.14/using/windows
+
+## Package Parameters
+- `/GlobalShortcuts:` - Choose if the global shortcuts directory should be added to PATH. By default, global shortcuts are added to machine or user PATH depending on choco's elevation status. Accepted options are:
+    - `/GlobalShortcuts:Machine` - Add global shortcuts directory to PATH in Machine Variables.
+    - `/GlobalShortcuts:User` - Add global shortcuts directory to PATH in User Variables.
+    - `/GlobalShortcuts:Disabled` - Disable addition of global shortcuts directory to PATH.
+- `/SkipMaxPathLimitationRemoval` - By default, the package removes Windows's MAX_PATH limitation. This parameter can be provided to skip that step.
+
+These parameters can be passed to the installer with the use of `--params`.
+For example: `--params "/GlobalShortcuts:Machine /SkipMaxPathLimitationRemoval"`</description>
+    <summary>Standalone tool that makes Python available as global commands on your Windows machine, integrates with the system, and supports updates over time.</summary>
+    <copyright>Copyright © 2025 Python Software Foundation. All rights reserved.</copyright>
+    <tags>pymanager python programming development foss cross-platform</tags>
+    <packageSourceUrl>https://github.com/Jackenmen/choco-auto/tree/main/automatic/pymanager</packageSourceUrl>
+  </metadata>
+  <files>
+    <file src="legal\**" target="legal" />
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
