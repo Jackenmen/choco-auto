@@ -26,7 +26,7 @@ Complete documentation is available at http://docs.python.org/3.14/using/windows
 - `/SkipMaxPathLimitationRemoval` - By default, the package removes Windows's MAX_PATH limitation. This parameter can be provided to skip that step.
 
 These parameters can be passed to the installer with the use of `--params`.
-For example: `--params "/GlobalShortcuts:Machine /SkipMaxPathLimitationRemoval"`</description>
+For example: `--params "'/GlobalShortcuts:Machine /SkipMaxPathLimitationRemoval'"`</description>
     <summary>Standalone tool that makes Python available as global commands on your Windows machine, integrates with the system, and supports updates over time.</summary>
     <copyright>Copyright © 2025 Python Software Foundation. All rights reserved.</copyright>
     <tags>pymanager python programming development foss cross-platform</tags>
