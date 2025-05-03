@@ -12,7 +12,7 @@ function global:au_SearchReplace {
         }
         ".\tools\chocolateyInstall.ps1" = @{
           "(^[$]filePath\s*=\s*`"[$]toolsPath\\).*" = "`${1}$($Latest.FileName64)`""
-          "(^[$]version\s*=\s*)('.*')"              = "`${1}'$($Latest.Version)'"
+          "(^[$]version\s*=\s*)('.*')"              = "`${1}'$($Latest.RemoteVersion)'"
         }
     }
 }
@@ -24,7 +24,8 @@ function global:au_BeforeUpdate {
 function global:au_GetLatest {
     $releaseData = Invoke-RestMethod $releases
     $url = $releaseData.AppInstaller.MainPackage.Uri
-    $version = $releaseData.AppInstaller.MainPackage.Version
+    $remoteVersion = $releaseData.AppInstaller.MainPackage.Version
+    $version = $remoteVersion
 
     while ($version.EndsWith('.0')) {
         $version = $version.Substring(0, $version.Length - 2)
@@ -36,8 +37,9 @@ function global:au_GetLatest {
     }
 
     @{
-      URL64   = $url
-      Version = $version
+      URL64         = $url
+      RemoteVersion = $remoteVersion
+      Version       = $version
     }
 }
 
