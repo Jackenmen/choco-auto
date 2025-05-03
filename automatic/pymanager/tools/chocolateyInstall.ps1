@@ -50,6 +50,18 @@ switch ($pp.GlobalShortcuts) {
     }
 }
 
+if ([Environment]::OSVersion.Version.Build -lt '18956') {
+    # See https://github.com/Jackenmen/choco-auto/issues/13
+    # Ref for the build number:
+    # https://blogs.windows.com/windows-insider/2019/08/07/announcing-windows-10-insider-preview-build-18956/
+    Write-Warning (
+        'Windows builds before 18956 do not have sideloading enabled by default.' +
+        ' The script will try to enable it automatically but this may fail,' +
+        ' if admin rights ar not available.'
+    )
+    Set-AllowAllTrustedApps
+}
+
 Install-PyManager $filePath $version
 
 if ($addGlobalShortcuts) {
