@@ -26,6 +26,10 @@ function global:au_GetLatest {
     $url = $releaseData.AppInstaller.MainPackage.Uri
     $version = $releaseData.AppInstaller.MainPackage.Version
 
+    while ($version.EndsWith('.0')) {
+        $version = $version.Substring(0, $version.Length - 2)
+    }
+
     $dot_count = ($version.Length - $version.replace('.', '').Length)
     if ($dot_count -eq 3) {
         $version += '00'
