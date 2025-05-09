@@ -12,7 +12,7 @@ function global:au_SearchReplace {
         }
         ".\tools\chocolateyInstall.ps1" = @{
           "(^[$]filePath\s*=\s*`"[$]toolsPath\\).*" = "`${1}$($Latest.FileName64)`""
-          "(^[$]version\s*=\s*)('.*')"              = "`${1}'$($Latest.RemoteVersion)'"
+          "(^[$]appxVersion\s*=\s*)('.*')"          = "`${1}'$($Latest.AppxVersion)'"
         }
     }
 }
@@ -24,22 +24,19 @@ function global:au_BeforeUpdate {
 function global:au_GetLatest {
     $releaseData = Invoke-RestMethod $releases
     $url = $releaseData.AppInstaller.MainPackage.Uri
-    $remoteVersion = $releaseData.AppInstaller.MainPackage.Version
-    $version = $remoteVersion
+    $filename = ([System.Uri]$url).Segments[-1]
+    $appxVersion = $releaseData.AppInstaller.MainPackage.Version
 
-    while ($version.EndsWith('.0')) {
-        $version = $version.Substring(0, $version.Length - 2)
+    $re = '^python-manager-(?<version>\d+\..+).msix$'
+    if (!($filename -match $re)) {
+        throw "Can't find version number"
     }
-
-    $dot_count = ($version.Length - $version.replace('.', '').Length)
-    if ($dot_count -eq 3) {
-        $version += '00'
-    }
+    $version = Get-Version $matches['version']
 
     @{
-      URL64         = $url
-      RemoteVersion = $remoteVersion
-      Version       = $version
+      URL64       = $url
+      AppxVersion = $appxVersion
+      Version     = $version
     }
 }
 
