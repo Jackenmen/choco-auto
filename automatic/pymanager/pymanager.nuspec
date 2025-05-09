@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>pymanager</id>
-    <version></version>
+    <version>25.0-b5</version>
     <title>Python Install Manager</title>
     <authors>Python Software Foundation</authors>
     <owners>jack1142</owners>
