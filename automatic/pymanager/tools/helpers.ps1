@@ -79,7 +79,8 @@ function Add-GlobalShortcutsToPath {
     if (!$newPath.EndsWith(';')) {
         $newPath = "$newPath;"
     }
-    Set-EnvironmentVariable -Name 'Path' -Value $newPath -Scope $pathType
+    Install-ChocolateyEnvironmentVariable `
+        -VariableName 'Path' -VariableValue $newPath -VariableType $pathType
     Write-Host "Added $pathEntry as PATH entry in $pathType Variables."
 }
 
