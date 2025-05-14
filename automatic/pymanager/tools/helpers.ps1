@@ -18,9 +18,9 @@ function Set-AllowAllTrustedApps {
 
 function Install-PyManager {
     param(
-        [string] $filePath,
-        [string] $version,
-        [switch] $provision = $true
+        [string] $FilePath,
+        [string] $Version,
+        [switch] $Provision = $true
     )
 
     $appxPackage = Get-AppxPackage -Name $Script:appxPackageName | Select-Object -Last 1
@@ -35,13 +35,13 @@ function Install-PyManager {
             " of Python Install Manager first."
         )
         Uninstall-PyManager
-    } elseif ($appxPackage.Version -gt [version]$version) {
+    } elseif ($appxPackage.Version -gt [version]$Version) {
         Write-Warning (
-            "The version of Python Install Manager in this Chocolatey package ($version)" +
+            "The version of Python Install Manager in this Chocolatey package ($Version)" +
             " is older than the already installed version (${appxPackage.Version})." +
             " The application may have auto-updated."
         )
-    } elseif ($appxPackage.Version -Match [version]$version) {
+    } elseif ($appxPackage.Version -Match [version]$Version) {
         if ($env:ChocolateyForce) {
             # you can't install the same version of an appx package, you need to remove it first
             Write-Host (
@@ -50,32 +50,32 @@ function Install-PyManager {
             )
             Uninstall-PyManager
         } else {
-            Write-Host "Python Install Manager $version is already installed."
+            Write-Host "Python Install Manager $Version is already installed."
             return
         }
     }
 
-    if ($provision) {
-        Add-ProvisionedAppxPackage -Online -SkipLicense -PackagePath $filePath
+    if ($Provision) {
+        Add-ProvisionedAppxPackage -Online -SkipLicense -PackagePath $FilePath
     } else {
-        Add-AppxPackage $filePath
+        Add-AppxPackage $FilePath
     }
     Write-Host
 }
 
 function Uninstall-PyManager {
-    param([switch]$isProvisioned = $true)
+    param([switch]$IsProvisioned = $true)
 
     $provisionedAppxPackage = $null
-    if ($isProvisioned) {
+    if ($IsProvisioned) {
         $provisionedAppxPackage = Get-AppxProvisionedPackage -Online | Where-Object {
             $_.DisplayName -eq $Script:appxPackageName
         }
         $provisionedAppxPackage | Remove-AppxProvisionedPackage -Online -AllUsers
     }
 
-    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers $isProvisioned
-    $appxPackage | Remove-AppxPackage -AllUsers $isProvisioned
+    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers $IsProvisioned
+    $appxPackage | Remove-AppxPackage -AllUsers $IsProvisioned
 
     if ($provisionedAppxPackage -eq $null -and $appxPackage -eq $null) {
         Write-Warning "$Script:appxPackageName has already been uninstalled through other means."
@@ -84,17 +84,17 @@ function Uninstall-PyManager {
 }
 
 function Add-GlobalShortcutsToPath {
-    param([System.EnvironmentVariableTarget] $pathType)
+    param([System.EnvironmentVariableTarget] $PathType)
 
     $pathEntry = '%USERPROFILE%\AppData\Local\Python\bin'
-    $actualPath = Get-EnvironmentVariable -Name 'Path' -Scope $pathType -PreserveVariables
+    $actualPath = Get-EnvironmentVariable -Name 'Path' -Scope $PathType -PreserveVariables
 
     if ($actualPath -eq $null) {
-        throw "Could not get PATH from $pathType Variables."
+        throw "Could not get PATH from $PathType Variables."
     }
 
     if ($actualPath -Split ';' -Contains $pathEntry) {
-        Write-Host "$pathEntry PATH entry is already part of $pathType Variables."
+        Write-Host "$pathEntry PATH entry is already part of $PathType Variables."
         return
     }
     $pathToInstall = $pathEntry
@@ -106,8 +106,8 @@ function Add-GlobalShortcutsToPath {
         $newPath = "$newPath;"
     }
     Install-ChocolateyEnvironmentVariable `
-        -VariableName 'Path' -VariableValue $newPath -VariableType $pathType
-    Write-Host "Added $pathEntry as PATH entry in $pathType Variables."
+        -VariableName 'Path' -VariableValue $newPath -VariableType $PathType
+    Write-Host "Added $pathEntry as PATH entry in $PathType Variables."
 }
 
 function Remove-MaxPathLimitation {

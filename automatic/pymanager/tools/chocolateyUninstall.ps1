@@ -5,4 +5,4 @@ $toolsPath = Split-Path $MyInvocation.MyCommand.Definition
 
 $processHasAdminRights = Test-ProcessAdminRights
 
-Uninstall-PyManager $processHasAdminRights
+Uninstall-PyManager -IsProvisioned $processHasAdminRights
