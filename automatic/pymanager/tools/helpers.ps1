@@ -1,3 +1,5 @@
+$Script:appxPackageName = 'PythonSoftwareFoundation.PythonManager'
+
 function Set-AllowAllTrustedApps {
     # NOTE: This does not affect the "Allow all trusted apps to install" group policy
     # and the package will properly fail to install, if that policy is configured to
@@ -17,11 +19,11 @@ function Set-AllowAllTrustedApps {
 function Install-PyManager {
     param(
         [string] $filePath,
-        [string] $version
+        [string] $version,
+        [switch] $provision = $true
     )
 
-    $appxPackageName = 'PythonSoftwareFoundation.PythonManager'
-    $appxPackage = Get-AppxPackage -Name $appxPackageName | Select-Object -Last 1
+    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName | Select-Object -Last 1
     [version]$foundVersion = $appxPackage.Version
 
     if ($appxPackage -eq $null) {
@@ -32,7 +34,7 @@ function Install-PyManager {
             "Removing already installed version (${appxPackage.Version})" +
             " of Python Install Manager first."
         )
-        Remove-AppxPackage $appxPackage
+        Uninstall-PyManager
     } elseif ($appxPackage.Version -gt [version]$version) {
         Write-Warning (
             "The version of Python Install Manager in this Chocolatey package ($version)" +
@@ -46,15 +48,39 @@ function Install-PyManager {
                 "Removing already installed version (${appxPackage.Version})" +
                 " of Python Install Manager first."
             )
-            Remove-AppxPackage $appxPackage
+            Uninstall-PyManager
         } else {
             Write-Host "Python Install Manager $version is already installed."
             return
         }
     }
 
-    Add-AppxPackage $filePath
+    if ($provision) {
+        Add-ProvisionedAppxPackage -Online -SkipLicense -PackagePath $filePath
+    } else {
+        Add-AppxPackage $filePath
+    }
     Write-Host
+}
+
+function Uninstall-PyManager {
+    param([switch]$isProvisioned = $true)
+
+    $provisionedAppxPackage = $null
+    if ($isProvisioned) {
+        $provisionedAppxPackage = Get-AppxProvisionedPackage -Online | Where-Object {
+            $_.DisplayName -eq $Script:appxPackageName
+        }
+        $provisionedAppxPackage | Remove-AppxProvisionedPackage -Online -AllUsers
+    }
+
+    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers $isProvisioned
+    $appxPackage | Remove-AppxPackage -AllUsers $isProvisioned
+
+    if ($provisionedAppxPackage -eq $null -and $appxPackage -eq $null) {
+        Write-Warning "$Script:appxPackageName has already been uninstalled through other means."
+        return
+    }
 }
 
 function Add-GlobalShortcutsToPath {

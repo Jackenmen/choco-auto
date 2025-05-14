@@ -1,12 +1,8 @@
 $ErrorActionPreference = 'Stop'
 
-$appxPackageName = "PythonSoftwareFoundation.PythonManager"
+$toolsPath = Split-Path $MyInvocation.MyCommand.Definition
+. "$toolsPath/helpers.ps1"
 
-$appxPackage = Get-AppxPackage -Name $appxPackageName | Select-Object -Last 1
+$processHasAdminRights = Test-ProcessAdminRights
 
-if ($appxPackage -eq $null) {
-    Write-Warning "$appxPackageName has already been uninstalled through other means."
-    return
-}
-
-Remove-AppxPackage -Package $appxPackage
+Uninstall-PyManager $processHasAdminRights
