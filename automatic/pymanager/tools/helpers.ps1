@@ -1,4 +1,5 @@
 $Script:appxPackageName = 'PythonSoftwareFoundation.PythonManager'
+$Script:appxPublisherId = '3847v3x7pw1km'
 
 function Set-AllowAllTrustedApps {
     # NOTE: This does not affect the "Allow all trusted apps to install" group policy
@@ -23,29 +24,69 @@ function Install-PyManager {
         [switch] $Provision = $true
     )
 
-    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName | Select-Object -Last 1
-    [version]$foundVersion = $appxPackage.Version
+    $foundAppxPackage = $null
 
-    if ($appxPackage -eq $null) {
+    if ($Provision) {
+        $appxPackages = Get-AppxProvisionedPackage -Online | Where-Object {
+            $_.DisplayName -eq $Script:appxPackageName
+        }
+    } else {
+        $appxPackages = Get-AppxPackage -Name $Script:appxPackageName
+    }
+
+    foreach ($appxPackage in $appxPackages) {
+        if ($Provision) {
+            $appxPackageName = $appxPackage.PackageName
+        } else {
+            $appxPackageName = $appxPackage.PackageFullName
+        }
+        if (!$appxPackageName.EndsWith("__$Script:appxPublisherId")) {
+            if ($env:ChocolateyForce) {
+                Write-Host (
+                    "Removing already installed Python Install Manager from a different publisher" +
+                    " (${appxPackageName}) first"
+                )
+                if ($Provision) {
+                    Remove-AppxProvisionedPackage -Online -AllUsers -PackageName $appxPackageName
+                }
+                Remove-AppxPackage -AllUsers:$Provision -Package $appxPackageName
+                continue
+            }
+            throw (
+                "The $Script:appxPackageName package from a different publisher is already provisioned:`n" +
+                "${appxPackageName}`n" +
+                "This may be a Store package or a development build.`n" +
+                "This Chocolatey package uses MSIX from Python.org which cannot be provisioned" +
+                " side-by-side with other variants."
+            )
+        }
+        if ($foundAppxPackage -ne $null) {
+            throw 'Unreachable error: found multiple packages from same publisher?'
+        }
+        $foundAppxPackage = $appxPackage
+    }
+
+    [version]$foundVersion = $foundAppxPackage.Version
+    if ($foundAppxPackage -eq $null) {
         # pymanager isn't already installed
     } elseif ($env:ChocolateyForce) {
         # you can't install the same version of an appx package, you need to remove it first
         Write-Host (
-            "Removing already installed version (${appxPackage.Version})" +
+            "Removing already installed version ($foundVersion)" +
             " of Python Install Manager first."
         )
         Uninstall-PyManager -IsProvisioned:$Provision
-    } elseif ($appxPackage.Version -gt [version]$Version) {
+    } elseif ($foundVersion -gt [version]$Version) {
         Write-Warning (
             "The version of Python Install Manager in this Chocolatey package ($Version)" +
-            " is older than the already installed version (${appxPackage.Version})." +
+            " is older than the already installed version ($foundVersion)." +
             " The application may have auto-updated."
         )
-    } elseif ($appxPackage.Version -Match [version]$Version) {
+    } elseif ($foundVersion -Match [version]$Version) {
         if ($env:ChocolateyForce) {
             # you can't install the same version of an appx package, you need to remove it first
             Write-Host (
-                "Removing already installed version (${appxPackage.Version})" +
+                "Removing already installed version ($foundVersion)" +
                 " of Python Install Manager first."
             )
             Uninstall-PyManager -IsProvisioned:$Provision
