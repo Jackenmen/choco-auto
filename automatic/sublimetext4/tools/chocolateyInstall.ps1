@@ -6,8 +6,8 @@ $softwareName = 'Sublime Text'
 $packageArgs = @{
   packageName            = $packageName
   fileType               = 'exe'
-  url                    = 'https://download.sublimetext.com/sublime_text_build_4198_x64_setup.exe'
-  checksum               = '7aa3c1405af36d865cdb582341055164f957ca44709583ba3f451543dfbd3f5e'
+  url                    = 'https://download.sublimetext.com/sublime_text_build_4199_x64_setup.exe'
+  checksum               = '839ef32123504c9c2ade29e254afa2afb2c197ed916d3055cc90518282f50f27'
   checksumType           = 'sha256'
   silentArgs             = '/VERYSILENT /NORESTART /TASKS="contextentry"'
   validExitCodes         = @(0)
