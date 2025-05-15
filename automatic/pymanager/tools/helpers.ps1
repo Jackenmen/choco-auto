@@ -65,6 +65,19 @@ function Install-PyManager {
         }
         $foundAppxPackage = $appxPackage
     }
+    if ($Provision) {
+        $appxPackages = Get-AppxPackage -Name $Script:appxPackageName
+        foreach ($appxPackage in $appxPackages) {
+            if (!$appxPackageName.EndsWith("__$Script:appxPublisherId")) {
+                Write-Warning (
+                    "Current user already has the $Script:appxPackageName installed" +
+                    " from a different publisher. This may be a Store package" +
+                    " or a development build. It is recommended to uninstall that variant"
+                    " to allow this package to receive updates."
+                )
+            }
+        }
+    }
 
     [version]$foundVersion = $foundAppxPackage.Version
     if ($foundAppxPackage -eq $null) {
