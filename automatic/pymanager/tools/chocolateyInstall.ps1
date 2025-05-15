@@ -9,10 +9,10 @@ $filePath    = "$toolsPath\python-manager-25.0b7.msix"
 $appxVersion = '25.0.183.0'
 
 if ([Environment]::OSVersion.Version.Major -ne '10') {
-    throw 'This package requires Windows 10 or 11.'
+    throw 'This package requires Windows 10 22H2 or above / Windows Server 2022.'
 }
-if ([Environment]::OSVersion.Version.Build -lt '17763') {
-    throw 'This package requires at least Windows 10 version 1809/OS build 17763.x.'
+if ([Environment]::OSVersion.Version.Build -lt '19044') {
+    throw 'This package requires at least Windows 10 version 22H2/OS build 19044.x.'
 }
 
 $processHasAdminRights = Test-ProcessAdminRights
@@ -48,18 +48,6 @@ switch ($pp.GlobalShortcuts) {
             ' Machine, User, Disabled'
         )
     }
-}
-
-if ([Environment]::OSVersion.Version.Build -lt '18956') {
-    # See https://github.com/Jackenmen/choco-auto/issues/13
-    # Ref for the build number:
-    # https://blogs.windows.com/windows-insider/2019/08/07/announcing-windows-10-insider-preview-build-18956/
-    Write-Warning (
-        'Windows builds before 18956 do not have sideloading enabled by default.' +
-        ' The script will try to enable it automatically but this may fail,' +
-        ' if admin rights ar not available.'
-    )
-    Set-AllowAllTrustedApps
 }
 
 Install-PyManager -FilePath $filePath -Version $appxVersion -Provision:$processHasAdminRights

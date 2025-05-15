@@ -1,22 +1,6 @@
 $Script:appxPackageName = 'PythonSoftwareFoundation.PythonManager'
 $Script:appxPublisherId = '3847v3x7pw1km'
 
-function Set-AllowAllTrustedApps {
-    # NOTE: This does not affect the "Allow all trusted apps to install" group policy
-    # and the package will properly fail to install, if that policy is configured to
-    # "Disabled" setting. We don't want to alter administrator's explicit decision,
-    # just the default behavior seen in earlier builds.
-    $registryEntry = @{
-        Path         = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock'
-        Name         = 'AllowAllTrustedApps'
-        Value        = 1
-        PropertyType = 'DWORD'
-        Force        = $true
-    }
-    New-ItemProperty @registryEntry | Out-Null
-    Write-Host 'Applied app sideloading behavior as seen in build 18956 and above.'
-}
-
 function Install-PyManager {
     param(
         [string] $FilePath,
