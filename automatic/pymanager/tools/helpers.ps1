@@ -95,6 +95,8 @@ function Install-PyManager {
             " is older than the already installed version ($foundVersion)." +
             " The application may have auto-updated."
         )
+        Write-Host 'MSIX installation will not be performed.'
+        return
     } elseif ($foundVersion -Match [version]$Version) {
         if ($env:ChocolateyForce) {
             # you can't install the same version of an appx package, you need to remove it first
