@@ -34,7 +34,7 @@ function Install-PyManager {
             "Removing already installed version (${appxPackage.Version})" +
             " of Python Install Manager first."
         )
-        Uninstall-PyManager -IsProvisioned $Provision
+        Uninstall-PyManager -IsProvisioned:$Provision
     } elseif ($appxPackage.Version -gt [version]$Version) {
         Write-Warning (
             "The version of Python Install Manager in this Chocolatey package ($Version)" +
@@ -48,7 +48,7 @@ function Install-PyManager {
                 "Removing already installed version (${appxPackage.Version})" +
                 " of Python Install Manager first."
             )
-            Uninstall-PyManager -IsProvisioned $Provision
+            Uninstall-PyManager -IsProvisioned:$Provision
         } else {
             Write-Host "Python Install Manager $Version is already installed."
             return
@@ -56,7 +56,7 @@ function Install-PyManager {
     }
 
     if ($Provision) {
-        Add-ProvisionedAppxPackage -Online -SkipLicense -PackagePath $FilePath
+        Add-AppxProvisionedPackage -Online -SkipLicense -PackagePath $FilePath
     } else {
         Add-AppxPackage $FilePath
     }
@@ -74,8 +74,8 @@ function Uninstall-PyManager {
         $provisionedAppxPackage | Remove-AppxProvisionedPackage -Online -AllUsers
     }
 
-    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers $IsProvisioned
-    $appxPackage | Remove-AppxPackage -AllUsers $IsProvisioned
+    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers:$IsProvisioned
+    $appxPackage | Remove-AppxPackage -AllUsers:$IsProvisioned
 
     if ($provisionedAppxPackage -eq $null -and $appxPackage -eq $null) {
         Write-Warning "$Script:appxPackageName has already been uninstalled through other means."

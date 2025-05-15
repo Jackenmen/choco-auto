@@ -62,7 +62,7 @@ if ([Environment]::OSVersion.Version.Build -lt '18956') {
     Set-AllowAllTrustedApps
 }
 
-Install-PyManager -FilePath $filePath -Version $appxVersion -Provision $processHasAdminRights
+Install-PyManager -FilePath $filePath -Version $appxVersion -Provision:$processHasAdminRights
 
 if ($addGlobalShortcuts) {
     Add-GlobalShortcutsToPath $pathType
