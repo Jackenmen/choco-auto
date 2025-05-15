@@ -72,7 +72,7 @@ function Install-PyManager {
                 Write-Warning (
                     "Current user already has the $Script:appxPackageName installed" +
                     " from a different publisher. This may be a Store package" +
-                    " or a development build. It is recommended to uninstall that variant"
+                    " or a development build. It is recommended to uninstall that variant" +
                     " to allow this package to receive updates."
                 )
             }
