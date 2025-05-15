@@ -120,18 +120,20 @@ function Install-PyManager {
 function Uninstall-PyManager {
     param([switch]$IsProvisioned = $true)
 
-    $provisionedAppxPackage = $null
+    $provisionedAppxPackages = $null
     if ($IsProvisioned) {
-        $provisionedAppxPackage = Get-AppxProvisionedPackage -Online | Where-Object {
-            $_.DisplayName -eq $Script:appxPackageName
+        $provisionedAppxPackages = Get-AppxProvisionedPackage -Online | Where-Object {
+            $_.DisplayName -eq $Script:appxPackageName -and $_.PackageName.EndsWith("__$Script:appxPublisherId")
         }
-        $provisionedAppxPackage | Remove-AppxProvisionedPackage -Online -AllUsers
+        $provisionedAppxPackages | Remove-AppxProvisionedPackage -Online -AllUsers
+    } else {
+        $appxPackages = Get-AppxPackage -Name $Script:appxPackageName | Where-Object {
+            $_.PackageFullName.EndsWith("__$Script:appxPublisherId")
+        }
+        $appxPackages | Remove-AppxPackage
     }
 
-    $appxPackage = Get-AppxPackage -Name $Script:appxPackageName -AllUsers:$IsProvisioned
-    $appxPackage | Remove-AppxPackage -AllUsers:$IsProvisioned
-
-    if ($provisionedAppxPackage -eq $null -and $appxPackage -eq $null) {
+    if ($provisionedAppxPackages -eq $null -and $appxPackages -eq $null) {
         Write-Warning "$Script:appxPackageName has already been uninstalled through other means."
         return
     }
