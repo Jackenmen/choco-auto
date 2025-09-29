@@ -14,6 +14,9 @@ function global:au_SearchReplace {
           "(^[$]filePath\s*=\s*`"[$]toolsPath\\).*" = "`${1}$($Latest.FileName64)`""
           "(^[$]appxVersion\s*=\s*)('.*')"          = "`${1}'$($Latest.AppxVersion)'"
         }
+        "$($Latest.PackageName).nuspec" = @{
+            "(\<description\>The Python Install Manager )[^ ]+ " = "`${1}$($Latest.FriendlyVersion) "
+        }
     }
 }
 
@@ -30,7 +33,8 @@ function global:au_GetLatest {
     if (!($filename -match $re)) {
         throw "Can't find version number"
     }
-    $friendlyVersion = Get-Version $matches['version']
+    $friendlyVersion = $matches['version']
+    $parsedFriendlyVersion = Get-Version $friendlyVersion
 
     $appxVersion = $releaseData.AppInstaller.MainPackage.Version
     $version = $appxVersion
@@ -43,14 +47,15 @@ function global:au_GetLatest {
     if ($dot_count -eq 3) {
         $version += '00'
     }
-    if ($friendlyVersion.Prerelease) {
-        $version += "-$($friendlyVersion.Prerelease)"
+    if ($parsedFriendlyVersion.Prerelease) {
+        $version += "-$($parsedFriendlyVersion.Prerelease)"
     }
 
     @{
-      URL64       = $url
-      AppxVersion = $appxVersion
-      Version     = $version
+      URL64           = $url
+      AppxVersion     = $appxVersion
+      FriendlyVersion = $friendlyVersion
+      Version         = $version
     }
 }
 
