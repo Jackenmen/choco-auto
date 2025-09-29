@@ -24,14 +24,28 @@ function global:au_BeforeUpdate {
 function global:au_GetLatest {
     $releaseData = Invoke-RestMethod $releases
     $url = $releaseData.AppInstaller.MainPackage.Uri
-    $filename = ([System.Uri]$url).Segments[-1]
-    $appxVersion = $releaseData.AppInstaller.MainPackage.Version
 
+    $filename = ([System.Uri]$url).Segments[-1]
     $re = '^python-manager-(?<version>\d+\..+).msix$'
     if (!($filename -match $re)) {
         throw "Can't find version number"
     }
-    $version = Get-Version $matches['version']
+    $friendlyVersion = Get-Version $matches['version']
+
+    $appxVersion = $releaseData.AppInstaller.MainPackage.Version
+    $version = $appxVersion
+
+    while ($version.EndsWith('.0')) {
+        $version = $version.Substring(0, $version.Length - 2)
+    }
+
+    $dot_count = ($version.Length - $version.replace('.', '').Length)
+    if ($dot_count -eq 3) {
+        $version += '00'
+    }
+    if ($friendlyVersion.Prerelease) {
+        $version += "-$($friendlyVersion.Prerelease)"
+    }
 
     @{
       URL64       = $url
