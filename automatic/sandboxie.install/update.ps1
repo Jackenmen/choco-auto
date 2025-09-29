@@ -44,10 +44,8 @@ function global:au_GetLatest {
         }
     }
 
-    foreach ($url_data in $urls.GetEnumerator()) {
-        if (!$url_data.Value) {
-            throw "Can't find URL for Sandboxie Classic"
-        }
+    if (!$url) {
+        throw "Can't find URL for Sandboxie Classic"
     }
 
     @{
