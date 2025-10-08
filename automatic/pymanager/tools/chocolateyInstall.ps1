@@ -5,8 +5,8 @@ $toolsPath = Split-Path $MyInvocation.MyCommand.Definition
 
 $pp = Get-PackageParameters
 
-$filePath    = "$toolsPath\python-manager-25.0b15.msix"
-$appxVersion = '25.0.191.0'
+$filePath    = "$toolsPath\python-manager-25.0.msix"
+$appxVersion = '25.0.240.0'
 
 if ([Environment]::OSVersion.Version.Major -ne '10') {
     throw 'This package requires Windows 10 22H2 or above / Windows Server 2022.'
