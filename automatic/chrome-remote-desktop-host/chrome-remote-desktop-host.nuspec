@@ -3,7 +3,7 @@
   <metadata>
     <id>chrome-remote-desktop-host</id>
     <title>Chrome Remote Desktop Host</title>
-    <version>140.0.7339.17</version>
+    <version>141.0.7390.12</version>
     <authors>Google Inc.</authors>
     <owners>jack1142</owners>
     <description>Chrome Remote Desktop allows users to remotely access another computer through Chrome browser or a Chromebook.  Computers can be made available on an short-term basis for scenarios such as ad hoc remote support, or on a more long-term basis for remote access to your applications and files.  All connections are fully secured.
