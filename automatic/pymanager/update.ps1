@@ -1,6 +1,6 @@
 import-module au
 
-$releases = 'https://www.python.org/ftp/python/pymanager/pymanager.appinstaller'
+$releases = 'https://www.python.org/ftp/python/pymanager/pymanager-preview.appinstaller'
 
 function global:au_SearchReplace {
     @{
