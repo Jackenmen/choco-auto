@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>sandboxie</id>
-    <version>5.71.4</version>
+    <version>5.71.5</version>
     <title>Sandboxie Classic</title>
     <authors>David Xanatos, Sophos Group plc, Invincea Inc., Ronen Tzur</authors>
     <owners>jack1142</owners>
@@ -40,7 +40,7 @@ Since version 5.31.4 Sandboxie is now available for free with no limitations. So
     <tags>security virtualization forensics admin</tags>
     <packageSourceUrl>https://github.com/jack1142/choco-auto/tree/main/automatic/sandboxie</packageSourceUrl>
     <dependencies>
-      <dependency id="sandboxie.install" version="[5.71.4]" />
+      <dependency id="sandboxie.install" version="[5.71.5]" />
     </dependencies>
   </metadata>
   <files>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>sandboxie.install</id>
-    <version>5.71.4</version>
+    <version>5.71.5</version>
     <title>Sandboxie Classic (Install)</title>
     <authors>David Xanatos, Sophos Group plc, Invincea Inc., Ronen Tzur</authors>
     <owners>dtgm, jack1142</owners>
