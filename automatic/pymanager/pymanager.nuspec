@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>pymanager</id>
-    <version>25.0.240</version>
+    <version>25.1.177-b1</version>
     <title>Python Install Manager</title>
     <authors>Python Software Foundation</authors>
     <owners>jack1142</owners>
@@ -12,7 +12,7 @@
     <bugTrackerUrl>https://github.com/python/pymanager/issues</bugTrackerUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/Jackenmen/choco-auto@840c0973b9e9ce29db4c32af8d9193b80e9e4b1c/automatic/pymanager/icons/pymanager.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>The Python Install Manager 25.0 helps you to install, manage, and launch Python on Windows.
+    <description>The Python Install Manager 25.1b1 helps you to install, manage, and launch Python on Windows.
 
 After install, the "py" command is your tool of choice - try "py help" to see what it can do! (Not working? You may need to uninstall the old "Python launcher", and check "Manage app execution aliases" to ensure the command is enabled.)
 
