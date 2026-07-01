@@ -7,13 +7,13 @@ location at <https://www.python.org/ftp/python/pymanager/pymanager-preview.appin
 and can be verified by doing the following:
 
 1. Download the following:
-  64-Bit software: <https://www.python.org/ftp/python/pymanager/python-manager-26.3b1.msix>
+  64-Bit software: <https://www.python.org/ftp/python/pymanager/python-manager-26.3.msix>
 2. Get the checksum using one of the following methods:
   - Using powershell function 'Get-FileHash'
   - Use chocolatey utility 'checksum.exe'
 3. The checksums should match the following:
 
   checksum type: sha256
-  checksum64: F7A007CAB43E6119EDA19F46250EDB965BD94BC7EFD8A57F7174CA47DAA33568
+  checksum64: BDD1A4E0B485F674748B275095CC8E7132BEB37A1AE91DB080ABB2661E3BADEC
 
 The file 'LICENSE.txt' has been obtained from <https://raw.githubusercontent.com/python/pymanager/0e1613626a5bb5829cba787da35b45843ec0303a/LICENSE>
